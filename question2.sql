@@ -4,7 +4,7 @@ CREATE TABLE random_numbers (
 );
 
 INSERT INTO random_numbers (random_value)
-SELECT ROUND(RANDOM() * 100, 2)
+SELECT ROUND((RANDOM() * 100)::numeric, 2)
 FROM generate_series(1, 10);
 
 SELECT * FROM random_numbers;
@@ -14,7 +14,7 @@ ORDER BY RANDOM()
 LIMIT 3;
 
 UPDATE random_numbers
-SET random_value = ROUND(RANDOM() * 100, 2)
+SET random_value = ROUND((RANDOM() * 100)::numeric, 2)
 WHERE id = 1;
 
 
